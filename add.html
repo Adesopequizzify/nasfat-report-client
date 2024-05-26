@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="add.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center mb-4">Add New Report</h1>
+    <form id="add-report-form">
+        <div class="form-group">
+            <label for="dateInput">Date:</label>
+            <input type="date" class="form-control" id="dateInput" readonly>
+        </div>
+        <div class="form-group">
+            <label for="userEmailInput">Logged-in Email:</label>
+            <input type="email" class="form-control" id="userEmailInput" readonly>
+        </div>
+        <div class="form-group">
+            <label for="totalMembersInput">Total Members:</label>
+            <input type="number" class="form-control" id="totalMembersInput" readonly>
+        </div>
+        <div class="form-group">
+            <label for="totalMalesInput">Males:</label>
+            <input type="number" class="form-control" id="totalMalesInput">
+        </div>
+        <div class="form-group">
+            <label for="totalFemalesInput">Females:</label>
+            <input type="number" class="form-control" id="totalFemalesInput">
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mt-3">Add Report</button>
+    </form>
+    <div id="message-container" style="display: none;"></div>
+</div>
+<script type="module" src="add.js"></script>
+</body>
+</html>
+

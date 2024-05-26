@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #212529; /* Dark text */
+}
+
+.container {
+  width: 350px;
+}
+
+.form-control {
+  height: calc(3.5rem + 2px);
+  padding: 1rem 0.75rem; /* Adjust padding to align placeholder text */
+}
+/* style.css */
+.alert-success {
+  background-color: #28a745; /* Custom green for success */
+  color: white;
+  border: none;
+}
+
+.alert-danger {
+  background-color: #dc3545; /* Custom red for danger */
+  color: white;
+  border: none;
+}
+
+.alert {
+  font-size: 18px;  /* Change font size */
+  padding: 15px;    /* Adjust padding */
+  border-radius: 8px; /* Rounded corners */
+}
