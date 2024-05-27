@@ -1,30 +1,31 @@
-name: Deploy to Firebase Hosting
+name: Install Firebase Dependencies
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  build:
+  install:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '18' # Update to the latest LTS version of Node.js
+          node-version: 21.6.2
+          cache: 'npm'  # Cache dependencies
 
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
-      - name: Authenticate to Firebase
-        env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NASFAT_S }}
+      - name: Install Firebase tools and dependencies
+        working-directory: public
         run: |
-          echo $FIREBASE_SERVICE_ACCOUNT > $HOME/firebase-key.json
-          gcloud auth activate-service-account --key-file=$HOME/firebase-key.json
-          gcloud --quiet config set project nasfat-s
+          npm install -g firebase-tools
+          npm install firebase
 
-      - name: Deploy to Firebase Hosting
-        run: firebase deploy --only hosting --token $(cat $HOME/firebase-key.json)
+      - name: Upload public directory
+        uses: actions/upload-artifact@v3
+        with:
+          name: public-with-firebase
+          path: public
