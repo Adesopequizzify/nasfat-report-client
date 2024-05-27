@@ -13,7 +13,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18' # Latest LTS version
+          node-version: '16' # Update to the latest LTS version of Node.js
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
