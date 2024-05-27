@@ -2,31 +2,29 @@ name: Deploy to Firebase Hosting
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Latest LTS version
 
-    - name: Install Firebase CLI
-      run: npm install -g firebase-tools
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
 
-    - name: Authenticate to Firebase
-      env:
-        FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NASFAT_S }}
-      run: |
-        echo $FIREBASE_SERVICE_ACCOUNT > $HOME/firebase-key.json
-        gcloud auth activate-service-account --key-file=$HOME/firebase-key.json
-        gcloud --quiet config set project nasfat-s
+      - name: Authenticate to Firebase
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NASFAT_S }}
+        run: |
+          echo $FIREBASE_SERVICE_ACCOUNT > $HOME/firebase-key.json
+          gcloud auth activate-service-account --key-file=$HOME/firebase-key.json
+          gcloud --quiet config set project nasfat-s
 
-    - name: Deploy to Firebase Hosting
-      run: firebase deploy --only hosting --token $(cat $HOME/firebase-key.json)
+      - name: Deploy to Firebase Hosting
+        run: firebase deploy --only hosting --token $(cat $HOME/firebase-key.json)
