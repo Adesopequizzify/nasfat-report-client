@@ -1,0 +1,25 @@
+{
+  "name": "nasfat-report-client-",
+  "version": "1.0.0",
+  "description": "Nasfat Report Client: A web application for submitting, managing, and analyzing Nasfat membership reports",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adesopequizzify/nasfat-report-client.git"
+  },
+  "keywords": [
+    "Nasfat",
+    "report",
+    "report",
+    "system"
+  ],
+  "author": "TechQue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adesopequizzify/nasfat-report-client/issues"
+  },
+  "homepage": "https://github.com/Adesopequizzify/nasfat-report-client#readme"
+}

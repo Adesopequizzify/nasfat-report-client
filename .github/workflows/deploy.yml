@@ -12,10 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Dependencies
+        working-directory: public
+        run: npm install csv-stringify jspdf xlsx
+
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NASFAT_S }}'  # Updated secret name
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NASFAT_S }}'  
           channelId: live
-          projectId: nasfat-s  # Your project ID
+          projectId: nasfat-s  
